@@ -1,0 +1,29 @@
+<div class="container top30">
+  <div class="loader" *ngIf="loading"></div>
+  <div class="row" *ngIf="!loading">
+    <div class="col-md-3">
+      <img [src]="inhabitant.thumbnail" class="img-thumbnail img-circ">
+    </div>
+    <div class="col-md-9">
+      <h1>{{inhabitant.name}}</h1>
+      <hr>
+      <ul>
+        <li>Age: {{inhabitant.age}}</li>
+        <li>Weight: {{inhabitant.weight}}</li>
+        <li>Height: {{inhabitant.height}}</li>
+        <li>Hair Color: {{inhabitant.hair_color}}</li>
+        <li>professions:
+          <ul>
+            <li *ngFor="let profession of inhabitant.professions">{{profession}}</li>
+          </ul>
+        </li>
+        <li *ngIf="inhabitant.friends.length">friends:
+          <ul>
+            <li *ngFor="let friend of inhabitant.friends">{{friend}}</li>
+          </ul>
+        </li>
+      </ul>
+      <button (click)="goBack()" type="button" class="btn btn-outline-danger">Back</button>
+    </div>
+  </div>
+</div>

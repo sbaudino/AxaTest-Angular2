@@ -1,0 +1,27 @@
+<div class="container top30">
+  <div class="loader" *ngIf="loading"></div>
+  <div class="row" *ngIf="!loading">
+    <div class="col-md-3">
+      <label for="name">Search by name</label>
+      <input type="text"
+             [(ngModel)]="name"
+             (keyup)="searchInhabitant()"
+             placeholder="Name..."
+             class="form-control">
+    </div>
+    <div class="col-md-9" *ngIf="name">
+      <h1>{{name}}</h1>
+      <hr>
+      <div class="row">
+        <div class="col-md-2 pointer"
+             *ngFor="let inhabitant of inhabitants"
+             [routerLink]="['/inhabitant', inhabitant.id]">
+          <img [src]="inhabitant.thumbnail" class="img-thumbnail">
+          <p>
+            {{inhabitant.name}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

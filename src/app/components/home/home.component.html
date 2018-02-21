@@ -1,0 +1,17 @@
+<div class="container top30">
+  <div class="loader" *ngIf="loading"></div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-2 pointer"
+             *ngFor="let inhabitant of inhabitantsService.inhabitants"
+             [routerLink]="['/inhabitant', inhabitant.id]">
+          <img [src]="inhabitant.thumbnail" class="img-thumbnail">
+          <p>
+            {{inhabitant.name}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
